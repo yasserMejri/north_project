@@ -1,0 +1,21 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% load static %}
+
+    <div class="cimg-text-8 {% if self.order == 'right' %} cimg-text-8--reversed{% endif %}">
+        <div class="cimg-text-8__img">
+          {% image self.image width-900 class="img-responsive" %}
+          
+        </div>
+        <div class="cimg-text-8__cols">
+            <h2 class="cimg-text-8__cols__heading text-h2">
+              {{ self.heading }}
+            </h2>
+            <div class="text-preamble">
+              {{ self.richtext }}
+            </div>
+        </div>
+      
+    </div>
+
+

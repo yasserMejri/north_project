@@ -1,0 +1,10 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load static %}
+
+{% for member in members %}
+    <div class="staff-6__member">
+      	<div class="staff-6__member__avatar">{% image member.avatar width-900 class="img-responsive" %}</div>
+      	<h4 class="staff-6__member__name text-h4">{{member.name}}</h4>
+      	<p class="staff-6__member__position">{{ member.position }}</p>
+    </div>
+{% endfor %}

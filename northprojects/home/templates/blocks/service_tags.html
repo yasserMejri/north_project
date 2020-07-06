@@ -1,0 +1,20 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load static %}
+
+<div class="services">
+    <div class="services__list">
+        <h4>Våra tjänster</h4>
+        {% for service in services %}
+                <h3 class="services__list__title text-h3" name="service{{ forloop.counter }}">{{service.service_title}}</h3>
+        {% endfor %}
+    </div>
+    <div class="services__content">
+        {% for service in services %}
+            <div class="services__one" id="service{{ forloop.counter }}">
+                <div class="services__one__image">{% image service.service_image width-900 class="img-responsive" %}</div>
+                <p class="services__one__detail">{{ service.service_detail }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>

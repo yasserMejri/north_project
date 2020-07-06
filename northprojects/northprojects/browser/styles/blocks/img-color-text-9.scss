@@ -1,0 +1,52 @@
+.img-color-text-9 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: #44624a;
+
+  &--reversed {
+    flex-direction: row-reverse;
+  }
+
+  &__img {
+    flex: 1;
+    min-width: 300px;
+    img {
+      width: 100%;
+    }
+  }
+
+  &__cols {
+    @include responsive($xs) {
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-bottom: 50px;
+    }
+    @include responsive($med) {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+    @include responsive($lg) {
+      padding-left: 140px;
+      padding-right: 120px;
+      width: 50%;
+      padding-bottom: 0px;
+    }
+    
+    
+    min-width: 300px;
+    // min-height: 360px;
+    &__preamble {
+      color: #fff;
+      font-size: 18px;
+      line-height: 26px;
+      margin-bottom: 50px;
+	  }
+
+    &__heading {
+      color: #BBD3BE;
+      margin-bottom: 30px;
+    }
+  }
+}

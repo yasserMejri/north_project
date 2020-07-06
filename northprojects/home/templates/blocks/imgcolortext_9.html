@@ -1,0 +1,26 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+
+<div class="img-color-text-9 {% if self.order == 'right' %} img-color-text-9--reversed {% endif %}">
+    <div class="img-color-text-9__img">
+      {% image self.image width-900 class="img-responsive" %}
+      
+    </div>
+    <div class="img-color-text-9__cols">
+        <h2 class="img-color-text-9__cols__heading text-h2">
+          {{ self.heading }}
+        </h2>
+        <div class="img-color-text-9__cols__preamble">
+          {{ self.preamble }}
+        </div>
+        {% if self.call_to_action %}
+        <button class="button" ><a href="{% pageurl self.call_to_action %}">
+            SE VÅRA LEDIGA TJÄNSTER
+        </a></button>
+        {% endif %}
+    </div>
+  
+</div>
+
+

@@ -1,0 +1,14 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load static %}
+
+<div class="products">
+{% for product in products %}
+    <div class="products__one">
+    	<h3 class="products__one__title text-h3">{{product.product_title}}</h3>
+      	<div class="products__one__image"><a href='{% pageurl product.call_to_action %}'>{% image product.product_image width-900 class="img-responsive" %}</a></div>
+      	<p class="products__one__detail">{{ product.product_detail }}</p>
+		<br/>
+      	<a class="products__one__readmore" href='{% pageurl product.call_to_action %}'>Läs mer</a>
+    </div>
+{% endfor %}
+</div>

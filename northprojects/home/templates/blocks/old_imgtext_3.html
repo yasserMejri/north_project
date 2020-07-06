@@ -1,0 +1,47 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/imgtext_3.css' %}">
+
+<div class="row">
+
+   <!--  {% image self.hero_img width-900 as my_image %}
+    <div class="col-sm-12 banner" style="background-image:url({{ my_image.url }})"> -->
+    <div class="col-sm-12 imgtext3-container">
+    	{% if self.order == 'left' %}
+	    	<div class="col-sm-6">
+	    		{% image self.image width-900 class="img-responsive" %}
+	    		
+	    	</div>
+	    	<div class="col-sm-6 imgtext3-cols">
+		      	<h3 class="imgtext3-heading">{{ self.heading }}</h3>
+		      	<div class="imgtext3-preamble">
+		      		{{ self.preamble }}
+		      	</div>
+		      	<div class="imgtext3-paragraph">
+		      		{{ self.paragraph }}
+		      	</div>
+		    </div>
+	    {% else %}
+	    	<div class="col-sm-6 imgtext3-cols-right">
+		      	<h3 class="imgtext3-heading">{{ self.heading }}</h3>
+		      	<div class="imgtext3-preamble">
+		      		{{ self.preamble }}
+		      	</div>
+		      	<div class="imgtext3-paragraph">
+		      		{{ self.paragraph }}
+		      	</div>
+		    </div>
+		    <div class="col-sm-6">
+	    		{% image self.image width-900 class="img-responsive %}
+	    		
+	    	</div>
+	    {% endif %}
+    </div>
+
+
+   <!-- {{ self.heading }} -->
+   <!-- {{ self.paragraph }} -->
+   <!-- {{ self.theme }} -->
+
+</div>

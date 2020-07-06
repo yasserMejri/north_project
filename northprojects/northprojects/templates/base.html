@@ -1,0 +1,155 @@
+{% load static wagtailuserbar %}
+{% load menu_tags %}
+{% load footer_tags %}
+
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            {% block title %}
+                {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
+            {% endblock %}
+            {% block title_suffix %}
+                {% with self.get_site.site_name as site_name %}
+                    {% if site_name %}- {{ site_name }}{% endif %}
+                {% endwith %}
+            {% endblock %}
+        </title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {# Global stylesheets #}
+        <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/hk-grotesk" type="text/css"/>
+        <link rel="stylesheet" href="https://use.typekit.net/bdu2pvi.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <script src="{% static 'action.js' %}"></script>
+
+        {% block extra_css %}
+            {# Override this in templates to add extra stylesheets #}
+        {% endblock %}
+    </head>
+
+    <body class="{% block body_class %}{% endblock %}">
+        <div class="main_continer">
+        {% wagtailuserbar %}
+        <div class="header">
+            <div class="header__logo">
+              <img class='logo-svg' src="{% static 'images/logo.svg' %}" />
+            </div>
+            {% get_menu as navigations %}
+              {% for navigation in navigations%}
+              <div class="header__topnav">
+                <div class="header__topnav__normal">
+                    {% for item in navigation.menu_items.all %}
+                        <a  class="menu-link" href="{{ item.link }}" {% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.title }}</a>
+                    {% endfor %}
+                    
+                </div>
+
+                <a href="javascript:void(0);" class="icon" >
+                        <i class="fa fa-3x fa-bars"></i>
+                    </a>
+                
+              </div>
+              {% endfor %}
+              <div class="header__small">
+                    <ul>
+                        {% get_menu as navigations %}
+                        {% for navigation in navigations%}
+                            {% for item in navigation.menu_items.all %}
+                                <li><a href="{{ item.link }}" {% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.title }}</a></li>
+                            {% endfor %}
+                        {% endfor %}
+                    </ul>
+                    
+                </div>
+        </div>
+
+
+        {% block content %}{% endblock %}
+
+        {% get_footer as footers %}
+          {% for footer in footers%}
+            <div class="footer">
+                <div class="footer__logo">
+                      <img src="{% static 'images/admin_logo.svg' %}" />
+                </div>
+                <div class="footer__content">
+                    <div class="footer__description">
+                        <p>
+                            {{footer.introduction}}
+                        </p>
+                    </div>
+                    <div class="footer__menu">
+                        <ul>
+                            {% get_menu as navigations %}
+                            {% for navigation in navigations%}
+                                {% for item in navigation.menu_items.all %}
+                                    <li><a href="{{ item.link }}" {% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.title }}</a></li>
+                                {% endfor %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="footer__contact">
+                        <h3>Kontakta oss</h3>
+                        <div class="footer__contact__content">
+                            <div class="footer__contact__col">
+                                
+                                <div>
+                                    <h4>Adress</h4>
+                                    <span>{{footer.address}}</span>
+                                </div>
+                                <div>
+                                    <h4>Email</h4>
+                                    <span>{{footer.email}}</span>
+                                </div>
+                               
+                            </div>
+                            <div class="footer__contact__col">
+                                <div >
+                                    <h4>Telefon</h4>
+                                    <span>{{footer.phone}}</span>
+                                </div>
+                                <div>
+                                    <h4>Ekonomi</h4>
+                                    <span>{{footer.economy}}</span>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="m-t-30">
+                            <h3>Följ North Projects</h4>
+                            <a href='https://www.facebook.com'><img src="{% static 'images/facebook.svg' %}" /></a>
+                            <a href='https://www.instagram.com'><img src="{% static 'images/instagram.svg' %}" /></a>
+                            <a href='https://www.linkedin.com'><img src="{% static 'images/linkedin.svg' %}" /></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+          {% endfor %}
+
+        </div>
+        {# Global javascript #}
+        <script type="text/javascript" src="{% static 'main.js' %}"></script>
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myTopnav");
+                if (x.className === "topnav") {
+                    x.className += " responsive";
+                } else {
+                    x.className = "topnav";
+                }
+            }
+        </script>
+        {% block extra_js %}
+            {# Override this in templates to add extra javascript #}
+        {% endblock %}
+    </body>
+</html>

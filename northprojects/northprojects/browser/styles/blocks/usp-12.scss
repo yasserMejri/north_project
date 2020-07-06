@@ -1,0 +1,108 @@
+.usp-12 {
+  @include responsive($xs) {
+    padding: 0 0px 80px 0px;
+  }
+  @include responsive($med) {
+    padding: 80px 70px;
+  }
+  @include responsive($lg) {
+    padding: 180px 160px 180px 100px;
+  }
+  
+  background-color: #000;
+
+  &__top {
+    display: flex;
+    flex-direction: row;
+	  align-items: center;
+    flex-wrap: wrap;
+
+    &--reversed {
+      flex-direction: row-reverse;
+	  }
+
+    &__img-container {
+      
+      min-width: 300px;
+      width: 100%;
+      img {
+        width: 100%;
+      }
+      @include responsive($lg) {
+        flex: 1;
+        padding-right: 30px;
+      }
+	  }
+
+    &__cols {
+      min-width: 300px;
+      @include responsive($xs) {
+        margin-top: 80px;
+        padding-right: 20px;
+        padding-left: 20px;
+      }
+
+      @include responsive($lg) {
+        margin-top: 0;
+        padding-left: 80px;
+        padding-right: 40px;
+        flex: 1;
+      }
+
+      &__heading {
+        color: #839b88;
+        margin-top: 5px;
+        margin-bottom: 30px;
+	    }
+
+      &__paragraph {
+        color: #ffffff;
+        font-size: 24px;
+        line-height: 32px;
+      }
+    }
+  }
+
+  &__paragraphs {
+    @include responsive($xs) {
+      margin-top: 50px;
+    }
+    @include responsive($med) {
+      margin-top: 120px;
+    }
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    // text-align: center;
+    &__paragraph {
+      @include responsive($xs) {
+        padding-right: 20px;
+        padding-left: 20px;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      @include responsive($med) {
+        padding: 0;
+        width: 290px;
+        
+      }
+      @include responsive($lg) {
+        margin-bottom: 0;
+      }
+      &__question {
+        color: #839b88;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 28px;
+        margin-bottom: 10px;
+      }
+
+      &__answer {
+        color: #ffffff;
+        font-size: 18px;
+        line-height: 30px;
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+
+.header {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  @include responsive($xs) {
+    padding: 20px
+  }
+  @include responsive($med) {
+    padding: 2em 8em 1em 6em;
+  }
+  &__topnav {
+    &__link {
+      margin-right: 20px;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 24px;
+    }
+    @include responsive($xs) {
+      a.icon {
+        display: block;
+      }
+
+    }
+    @include responsive($med) {
+      a.icon {
+        display: none;
+      }
+    }
+    &__normal {
+      @include responsive($xs) {
+        display: none;
+      }
+      @include responsive($med) {
+        display: block;
+      }
+    }
+  }
+  &__small {
+    top: 130px;
+    width: 100%;
+    background-color: white;
+    margin-top: 30px;
+    @include responsive($med) {
+        display: none;
+    }
+    ul {
+      padding: 20px 30px;
+      list-style: none;
+    }
+    li {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    li a {
+      font-size: 30px;
+      color: black;
+      font-weight: 500;
+    }
+
+  }
+}

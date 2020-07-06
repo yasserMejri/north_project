@@ -1,0 +1,14 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% load static %}
+	{% image self.image original as back_photo %}
+<div class="img-on-text-4"  style="background-image:url({{ back_photo.url }}); z-index: -1;">
+	<div class="img-on-text-4__text">
+		<h3 class="text-h3">
+			{{ self.heading }}
+		</h3>
+		<div class="text-preamble">
+			{{ self.preamble }}
+		</div>
+	</div>
+</div>

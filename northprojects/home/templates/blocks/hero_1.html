@@ -1,0 +1,23 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load menu_tags %}
+  
+  {% image self.hero_img original as back_photo %}
+
+<div class="hero-1" style="background-image:url({{ back_photo.url }}); z-index: -1;">
+  {% if self.heading %}
+    {% if self.paragraph and self.paragraph != '' %}
+      <div class="hero-1__heading">
+          {{ self.heading }}
+          <div class="hero-1__divider"></div>
+          
+          <div class="hero-1__subtitle">
+            {{ self.paragraph }}
+          </div>
+      </div>
+    {% else %}
+      <div class="hero-1__heading hero-1__heading--small">
+          {{ self.heading }}
+      </div>
+    {% endif %}
+  {% endif %}
+</div> 

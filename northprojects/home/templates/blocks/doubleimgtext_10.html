@@ -1,0 +1,28 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% load static %}
+
+    <div class="double-img-text-10 {% if self.order == 'right' %} double-img-text-10--reversed{% endif %}">
+        <div class="double-img-text-10__images">
+          <div class="double-img-text-10__images__one">
+            {% image self.image1 width-900 class="img-responsive" %}
+          </div>
+          <div class="double-img-text-10__images__one">
+            {% image self.image2 width-900 class="img-responsive" %}
+          </div>
+          
+        </div>
+        <div class="double-img-text-10__cols">
+            <h2 class="double-img-text-10__cols__heading text-h2">{{ self.heading }}</h2>
+            <div class="double-img-text-10__cols__preamble">
+              {{ self.preamble }}
+            </div>
+            <div class="double-img-text-10__cols__paragraph">
+              {{ self.paragraph }}
+            </div>
+        </div>
+
+    </div>
+
+
+

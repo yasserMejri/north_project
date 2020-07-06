@@ -1,0 +1,57 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% load static %}
+    <div class="usp-12">
+      <div class="usp-12__top {% if self.order == 'right' %} usp-12__top--reversed{% endif %}">
+        <div class="usp-12__top__img-container">
+            {% image self.image width-900 class="img-responsive" %}
+        </div>
+        <div class="usp-12__top__cols">
+            <h2 class="usp-12__top__cols__heading text-h2">{{ self.heading }}</h2>
+            <div class="usp-12__top__cols__paragraph">
+              {{ self.paragraph }}
+            </div>
+        </div>
+      </div>
+      <div class="usp-12__paragraphs">
+        <div class="usp-12__paragraphs__paragraph">
+            <div class="usp-12__paragraphs__paragraph__question">
+              {{ self.question1 }}
+            </div>
+            <div class="usp-12__paragraphs__paragraph__answer">
+              {{ self.paragraph1 }}
+            </div>
+        </div>
+        <div class="usp-12__paragraphs__paragraph">
+            <div class="usp-12__paragraphs__paragraph__question">
+              {{ self.question2 }}
+            </div>
+            <div class="usp-12__paragraphs__paragraph__answer">
+              {{ self.paragraph2 }}
+            </div>
+        </div>
+        <div class="usp-12__paragraphs__paragraph">
+            <div class="usp-12__paragraphs__paragraph__question">
+              {{ self.question3 }}
+            </div>
+            <div class="usp-12__paragraphs__paragraph__answer">
+              {{ self.paragraph3 }}
+            </div>
+        </div>
+        <div class="usp-12__paragraphs__paragraph">
+            <div class="usp-12__paragraphs__paragraph__question">
+              {{ self.question4 }}
+            </div>
+            <div class="usp-12__paragraphs__paragraph__answer">
+              {{ self.paragraph4 }}
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+   <!-- {{ self.heading }} -->
+   <!-- {{ self.paragraph }} -->
+   <!-- {{ self.theme }} -->
+
+</div>

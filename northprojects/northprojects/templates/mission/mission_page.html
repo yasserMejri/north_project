@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% load static wagtailcore_tags wagtailimages_tags %}
+{% load wagtailcore_tags product_tags %}
+{% load wagtailcore_tags member_tags %}
+
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+
+{% comment %}
+Delete the line below if you're just getting started and want to remove the welcome screen!
+{% endcomment %}
+{% endblock extra_css %}
+
+{% block content %}
+
+{{self.Hero_1}}
+{{self.TwoCol_2}}
+{{self.ImgText_3}}
+{{self.ImgOnText_4}}
+
+<div class="row staff6-container">
+	<div class="col-sm-3 member">
+		<h3 class="staff-title">{{self.Staff_6}}</h3>
+	</div>
+	{% members %}
+</div>
+{{self.CImgText_8}}
+{{self.ImgColorText_9}}
+{{self.DoubleImgText_10}}
+
+{{self.ImgOnText_4}}
+
+{% products %}
+{{self.USP_12}}
+
+{% endblock %}

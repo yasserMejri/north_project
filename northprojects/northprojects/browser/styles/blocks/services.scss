@@ -1,0 +1,66 @@
+.services {
+    @include responsive($xs) {
+        padding: 80px 20px;
+    }
+    @include responsive($med) {
+        padding: 80px 70px;
+    }
+    @include responsive($lg) {
+        padding: 180px 140px 180px 140px;
+    }
+      
+    
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    &__list {
+        min-width: 300px;
+        @include responsive($lg) {
+            padding-right: 120px;
+            padding-left: 110px;
+            width: 50%;
+        }
+        h4 {
+            color: #000000;	
+            font-size: 24px;	
+            font-weight: 600;	
+            letter-spacing: -0.2px;	
+            line-height: 32px;
+            margin-bottom: 80px;
+        }
+        &__title {
+            opacity: 0.3;	
+            color: #000000;	
+            font-size: 34px;	
+            font-weight: 500;	
+            line-height: 42px;
+            cursor: pointer;
+            margin-bottom: 40px;
+        }
+        &__title:hover, &__title.active {
+            opacity: 1;	
+        }
+    }
+    &__content {
+        min-width: 300px;
+        width: 50%;
+    }
+    &__one {
+        // display: none!important;
+        
+        img {
+            width: 100%;
+            margin-bottom: 40px;
+        }
+        p {
+            color: #000000;	
+            font-size: 18px;	
+            line-height: 26px;
+            @include responsive($lg) {
+                padding-right: 110px;
+            }
+            
+        }
+    }
+}

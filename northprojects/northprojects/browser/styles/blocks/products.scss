@@ -1,0 +1,76 @@
+.products {
+  
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  @include responsive($xs) {
+      padding: 0 0 50px 0;
+  }
+  @include responsive($med) {
+      padding: 50px 40px;
+  }
+  @include responsive($lg) {
+      padding: 100px 140px;
+  }
+  &__one {
+    
+    @include responsive($med) {
+      // max-width: 300px;
+      max-width: 48%;
+      flex: 1;
+    }
+    @include responsive(1522px) {
+      max-width: 600px;
+    }
+    @include responsive($lg) {
+      // max-width: 600px;
+    }
+    margin-top: 60px;
+
+    &__title {
+      @include responsive($xs) {
+        padding-right: 20px;
+	      padding-left: 20px;
+      }
+      @include responsive($med) {
+          padding: 0;
+      }
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+    &__image {
+      img {
+        margin-bottom: 20px;
+        @include responsive($med) {
+          // max-width: 300px;
+        }
+        @include responsive($lg) {
+          // width: 50%;
+          height: 440px;
+        }
+        
+      }
+    }
+    &__detail, &__readmore {
+      @include responsive($xs) {
+        padding-right: 20px;
+	      padding-left: 20px;
+      }
+      @include responsive($med) {
+          padding: 0;
+          width: 80%;
+      }
+      color: #000000; 
+      font-size: 18px;  
+      line-height: 26px;
+      
+    } 
+    &__readmore {
+      line-height: 24px;
+      font-weight: 500;
+      margin-bottom: 50px;
+      cursor: pointer;
+    } 
+  }
+}

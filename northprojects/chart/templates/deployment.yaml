@@ -1,0 +1,76 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "northprojects.fullname" . }}
+  labels:
+{{ include "northprojects.labels" . | indent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "northprojects.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ include "northprojects.name" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+    spec:
+    {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      volumes:
+        - name: gcloud
+          secret:
+            secretName: gcloud
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          lifecycle:
+            postStart:
+              exec:
+                command: ["python", "manage.py", "migrate"]
+          volumeMounts:
+            - name: gcloud
+              mountPath: "/credentials"
+              readOnly: true
+          envFrom:
+            - secretRef:
+                name: northprojects
+          env:
+            - name: DB_USER
+              value: northprojects_develop
+            - name: DB_NAME
+              value: northprojects_develop
+            - name: DB_HOST
+              value: postgresql-postgresql.shared.svc.cluster.local
+            - name: GCLOUD_STORAGE_CREDENTIALS
+              value: /credentials/gcloud_credentials.json
+          ports:
+            - name: http
+              containerPort: 8000
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /admin
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /admin
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}

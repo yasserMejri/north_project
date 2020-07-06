@@ -1,0 +1,57 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/doubleimgtext_10.css' %}">
+
+<div class="row">
+
+   <!--  {% image self.hero_img width-900 as my_image %}
+    <div class="col-sm-12 banner" style="background-image:url({{ my_image.url }})"> -->
+    <div class="col-sm-12 doubleimgtext_10-container">
+      {% if self.order == 'left' %}
+        <div class="col-sm-7 row doubleimgtext_10-img-container">
+          <div class="col-sm-6">
+            {% image self.image1 width-900 class="img-responsive" %}
+          </div>
+          <div class="col-sm-6">
+            {% image self.image2 width-900 class="img-responsive" %}
+          </div>
+          
+        </div>
+        <div class="col-sm-5 doubleimgtext_10-cols">
+            <h3 class="doubleimgtext_10-heading">{{ self.heading }}</h3>
+            <div class="doubleimgtext_10-preamble">
+              {{ self.preamble }}
+            </div>
+            <div class="doubleimgtext_10-paragraph">
+              {{ self.paragraph }}
+            </div>
+        </div>
+      {% else %}
+        <div class="col-sm-5 doubleimgtext_10-cols-right">
+            <h3 class="doubleimgtext_10-heading">{{ self.heading }}</h3>
+            <div class="doubleimgtext_10-preamble">
+              {{ self.preamble }}
+            </div>
+            <div class="doubleimgtext_10-paragraph">
+              {{ self.paragraph }}
+            </div>
+        </div>
+        <div class="col-sm-7 row doubleimgtext_10-img-container">
+          <div class="col-sm-6">
+            {% image self.image1 width-900 class="img-responsive" %}
+          </div>
+          <div class="col-sm-6">
+            {% image self.image2 width-900 class="img-responsive" %}
+          </div>
+          
+        </div>
+      {% endif %}
+    </div>
+
+
+   <!-- {{ self.heading }} -->
+   <!-- {{ self.paragraph }} -->
+   <!-- {{ self.theme }} -->
+
+</div>

@@ -1,0 +1,98 @@
+@mixin responsive($query) {
+    @media ( min-width: + $query ) {
+        @content;
+    }
+}
+// Variables
+$xl: 87.5em; // 4k and hi-res desktop
+$lg: 70em; // 1080 and hi-res laptops
+$med: 40em; // hi-res tablets and low-res laptops
+$sm: 28em; // mobile and low-res tablets
+$xs: 20em; // mobile only
+$page-max-width: 1600px;
+$horizontal-block-space: 60px;
+$padding-space: 40px;
+
+
+
+
+
+
+.white-logo path, .white-logo polygon{
+    fill: white;
+    background-color: white;
+}
+
+.black-logo path, .black-logo polygon{
+    fill: black;
+    background-color: black;
+
+}
+
+.white-header, .white .hero-1, .white-icon i:before {
+    color: white;
+}
+.black-header, .black .hero-1, .black-icon i:before {
+    color: black;
+}
+.button {
+    background-color: #1F1F1F;
+    padding: 14px 25px;
+    color: #fff;
+    border: none;
+}
+.button a {
+    color: white;
+}
+.button a:hover{
+    color: #fff !important;
+    text-decoration: none;
+}
+body {
+    max-width: $page-max-width;
+    margin: 0 auto !important;
+    min-height: 100vh; 
+    margin: 0 auto;
+    padding: 0 0;
+    color: #231f20;
+    font-family: aktiv-grotesk, "Helvetica" !important;
+    line-height: 1.25;
+    background-color: #f2f2f2!important;
+}
+.main_continer {
+    background-color: white;
+    position: relative;
+    z-index: 2;
+}
+.menu-link {
+    color: white !important;	
+    font-size: 18px;	
+    font-weight: 500;	
+    line-height: 24px;
+    margin-right: 25px;
+}
+.m-t-30 {
+    margin-top: 30px;
+}
+.p-l-30 {
+    padding-left: 30px;
+} 
+// Make all imports here
+@import "text";
+@import "blocks/img-text-3";
+@import "blocks/hero-1";
+@import "blocks/two-col-2";
+@import "blocks/img-on-text-4";
+@import "blocks/staff-6";
+@import "blocks/cimg-text-8";
+@import "blocks/double-img-text-10";
+@import "blocks/usp-12";
+@import "blocks/img-color-text-9";
+@import "blocks/products";
+@import "blocks/footer";
+@import "blocks/header";
+@import "blocks/services";
+
+
+
+

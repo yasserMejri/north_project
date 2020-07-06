@@ -1,0 +1,49 @@
+.two-col-2 {
+  background-color: #44624a;
+  @include responsive($xs) {
+    padding: 30px 20px 50px 20px;
+  }
+  @include responsive($med) {
+    padding: 80px 70px;
+  }
+  @include responsive($lg) {
+    padding: 180px 140px;
+  } 
+  &__cols {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    opacity: 0.9;
+    color: #ffffff;
+    font-size: 24px;
+    line-height: 32px;
+
+    &__right {
+      @include responsive($med) {
+        flex: 1;
+        padding-left: 30px;
+      } 
+    }
+
+    &__left {
+      
+      @include responsive($med) {
+        flex: 1;
+        padding-right: 30px;
+        padding-left: 5px;
+      } 
+    }
+  }
+
+  &__heading {
+    @include responsive($lg) {
+      width: 40%;
+    } 
+    color: #bbd3be;
+    font-size: 50px;
+    font-weight: 500;
+    line-height: 58px;
+    margin-bottom: 30px;
+    
+  }
+}

@@ -1,0 +1,31 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<div class="img-text-3{% if self.order == 'right' %} img-text-3--reversed{% endif %}">
+    <div class="img-text-3__image">
+        <picture>
+            {% comment %}
+            We'll add responsive images here later
+            {% endcomment %}
+
+            {% image self.image width-900 %}
+        </picture>
+    </div>
+    <div class="img-text-3__content">
+        <h3 class="text-h3">{{ self.heading }}</h3>
+        {% if self.preamble %}
+        <div class="text-preamble">
+            {{ self.preamble }}
+        </div>
+        {% endif %}
+        {% if self.body %}
+        <div class="text-body">
+            {{ self.body }}
+        </div>
+        {% endif %}
+        {% if self.call_to_action %}
+        <button class="button" ><a href="{% pageurl self.call_to_action %}">
+            LÄS MER OM VÅRA TJÄNSTER
+        </a></button>
+        {% endif %}
+    </div>
+</div>
